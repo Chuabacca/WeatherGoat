@@ -26,7 +26,6 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
         weatherTableView.translatesAutoresizingMaskIntoConstraints = false
         weatherTableView.dataSource = self
         weatherTableView.register(WeatherCell.self, forCellReuseIdentifier: weatherCellIdentifier)
-        weatherTableView.backgroundColor = .red
         view.addSubview(weatherTableView)
 
         NSLayoutConstraint.activate([
@@ -36,7 +35,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
             weatherTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
 
-        view.backgroundColor = .blue
+        view.backgroundColor = .cyan
     }
 
     // MARK: - Use Cases

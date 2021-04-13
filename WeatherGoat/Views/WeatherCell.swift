@@ -39,11 +39,11 @@ class WeatherCell: UITableViewCell {
         contentView.addSubview(dateLabel)
 
         minTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
-        minTemperatureLabel.font = .systemFont(ofSize: 12.0)
+        minTemperatureLabel.font = .systemFont(ofSize: 14.0, weight: .bold)
         contentView.addSubview(minTemperatureLabel)
 
         maxTemperatureLabel.translatesAutoresizingMaskIntoConstraints = false
-        maxTemperatureLabel.font = .systemFont(ofSize: 12.0)
+        maxTemperatureLabel.font = .systemFont(ofSize: 14.0, weight: .bold)
         contentView.addSubview(maxTemperatureLabel)
 
         NSLayoutConstraint.activate([
@@ -54,10 +54,12 @@ class WeatherCell: UITableViewCell {
             dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10.0),
 
             maxTemperatureLabel.leadingAnchor.constraint(equalTo: weatherImage.trailingAnchor, constant: 20.0),
-            maxTemperatureLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10.0),
+            maxTemperatureLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 5.0),
 
             minTemperatureLabel.leadingAnchor.constraint(equalTo: maxTemperatureLabel.trailingAnchor, constant: 20.0),
-            minTemperatureLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10.0)
+            minTemperatureLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 5.0),
+
+            contentView.bottomAnchor.constraint(equalTo: maxTemperatureLabel.bottomAnchor, constant: 10.0)
         ])
     }
 
