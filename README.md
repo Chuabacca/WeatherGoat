@@ -48,16 +48,16 @@ Model
 
 ### Milestones
 Sketch out the major development milestones to aid in planning, goal tracking, and setting expectations for stakeholders. 
-1. UI Construction
-    * Successfully display the app UI with mock data
-2. Weather Info Service
+1. Weather Info Service
     * Successfully connect to the API
     * Successfully decode JSON data
-3. Data Modeling and Display
-    * Successfully consume and display weathe data
-4. Feature Testing
+1. Data Modeling and Display
+    * Successfully consume and display weather data
+1. UI Construction
+    * Successfully display the data in the app UI
+1. Feature Testing
     * Ensure that the app fulfills all the requirements
     * Look for any remaining bugs (QA testing should happen regularly during development)
-4. Tech Debt
+1. Tech Debt
     * Pay back tech debt accumulated during development
 
