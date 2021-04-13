@@ -12,6 +12,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
     var model = WeatherViewModel()
 
     let weatherTableView = UITableView()
+    let weatherCellIdentifier = "weatherCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
 
         weatherTableView.translatesAutoresizingMaskIntoConstraints = false
         weatherTableView.dataSource = self
-        weatherTableView.register(UITableViewCell.self, forCellReuseIdentifier: "weatherCell")
+        weatherTableView.register(WeatherCell.self, forCellReuseIdentifier: weatherCellIdentifier)
         weatherTableView.backgroundColor = .red
         view.addSubview(weatherTableView)
 
@@ -41,8 +42,8 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
-        cell.textLabel!.text = "[\(indexPath.row)] \(model.dailyForecast[indexPath.row].date)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: weatherCellIdentifier, for: indexPath) as! WeatherCell
+        cell.setContent(model: model.dailyForecast[indexPath.row])
         return cell
     }
 

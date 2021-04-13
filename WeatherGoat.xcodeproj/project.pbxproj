@@ -14,6 +14,7 @@
 		FC57DEE82625045A00CFFEF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC57DEE62625045A00CFFEF3 /* LaunchScreen.storyboard */; };
 		FC57DEF626252D8700CFFEF3 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57DEF526252D8700CFFEF3 /* WeatherViewModel.swift */; };
 		FC57DEF826255F9F00CFFEF3 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57DEF726255F9F00CFFEF3 /* WeatherService.swift */; };
+		FC57DEFC26261D7E00CFFEF3 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57DEFB26261D7E00CFFEF3 /* WeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		FC57DEE92625045A00CFFEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC57DEF526252D8700CFFEF3 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		FC57DEF726255F9F00CFFEF3 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		FC57DEFB26261D7E00CFFEF3 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		FC57DEF02625243200CFFEF3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FC57DEFB26261D7E00CFFEF3 /* WeatherCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			files = (
 				FC57DEF826255F9F00CFFEF3 /* WeatherService.swift in Sources */,
 				FC57DEE02625045600CFFEF3 /* WeatherViewController.swift in Sources */,
+				FC57DEFC26261D7E00CFFEF3 /* WeatherCell.swift in Sources */,
 				FC57DEF626252D8700CFFEF3 /* WeatherViewModel.swift in Sources */,
 				FC57DEDC2625045600CFFEF3 /* AppDelegate.swift in Sources */,
 				FC57DEDE2625045600CFFEF3 /* SceneDelegate.swift in Sources */,
