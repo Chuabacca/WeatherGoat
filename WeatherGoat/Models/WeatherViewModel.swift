@@ -11,6 +11,7 @@ import UIKit
 
 class WeatherViewModel {
     let service = WeatherService.shared
+    var delegate: WeatherViewModelDelegate?
 
     var dailyForecast: [DayForecast] = []
 
@@ -38,7 +39,12 @@ class WeatherViewModel {
                 )
                 self.dailyForecast.append(dayForecast)
             }
+            self.delegate?.didLoadViewModel()
             print(self.dailyForecast.description)
         }
     }
+}
+
+protocol WeatherViewModelDelegate {
+    func didLoadViewModel()
 }
