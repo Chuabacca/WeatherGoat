@@ -10,8 +10,9 @@ import UIKit
 
 class WeatherService {
     // Structure of data we need for the app
-    var dailyForecasts: [DailyForecast] = []
-    struct DailyForecast {
+    var dailyForecast: [DayForecast] = []
+
+    struct DayForecast {
         let date: Int
         let minTemperature: Float
         let maxTemperature: Float
@@ -24,8 +25,8 @@ class WeatherService {
     
     // Structure of data from the API
     struct WeatherData: Codable {
-        var daily: [DailyData]
-        struct DailyData: Codable {
+        var daily: [DayData]
+        struct DayData: Codable {
             var dt: Int
             var temp: Temp
             struct Temp: Codable {
@@ -72,7 +73,7 @@ class WeatherService {
             decoder.dateDecodingStrategy = .secondsSince1970
             let weatherData = try decoder.decode(WeatherData.self, from: data)
             self.mapWeatherData(weatherData)
-            print(self.dailyForecasts.description)
+            print(self.dailyForecast.description)
         } catch {
             print("Handle JSON decoding error: \(error)")
         }
@@ -80,21 +81,21 @@ class WeatherService {
     
     func mapWeatherData(_ weatherData: WeatherData) -> Void {
         for dailyData in weatherData.daily {
-            var weatherArray: [DailyForecast.Weather] = []
+            var weatherArray: [DayForecast.Weather] = []
             for weather in dailyData.weather {
-                let weatherElement = DailyForecast.Weather(
+                let weatherElement = DayForecast.Weather(
                     description: weather.description,
                     imageURL: "http://openweathermap.org/img/wn/\(weather.icon)@2x.png"
                 )
                 weatherArray.append(weatherElement)
             }
-            let dailyForecast = DailyForecast(
+            let dailyForecast = DayForecast(
                 date: dailyData.dt,
                 minTemperature: dailyData.temp.min,
                 maxTemperature: dailyData.temp.max,
                 weather: weatherArray
                 )
-            dailyForecasts.append(dailyForecast)
+            self.dailyForecast.append(dailyForecast)
         }
     }
 }

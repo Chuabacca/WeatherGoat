@@ -6,4 +6,16 @@
 //  Copyright © 2021 Jonathan Chua. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct WeatherViewModel {
+    var dailyForecast: [DayForecast] = []
+
+    struct DayForecast {
+        let date: String
+        let minTemperature: Float
+        let maxTemperature: Float
+        let description: String
+        let icon: UIImage
+    }
+}
