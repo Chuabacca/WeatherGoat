@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		FC57DEDC2625045600CFFEF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57DEDB2625045600CFFEF3 /* AppDelegate.swift */; };
 		FC57DEDE2625045600CFFEF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57DEDD2625045600CFFEF3 /* SceneDelegate.swift */; };
-		FC57DEE02625045600CFFEF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57DEDF2625045600CFFEF3 /* ViewController.swift */; };
+		FC57DEE02625045600CFFEF3 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57DEDF2625045600CFFEF3 /* WeatherViewController.swift */; };
 		FC57DEE52625045A00CFFEF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC57DEE42625045A00CFFEF3 /* Assets.xcassets */; };
 		FC57DEE82625045A00CFFEF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC57DEE62625045A00CFFEF3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,7 +18,7 @@
 		FC57DED82625045600CFFEF3 /* WeatherGoat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherGoat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC57DEDB2625045600CFFEF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC57DEDD2625045600CFFEF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC57DEDF2625045600CFFEF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC57DEDF2625045600CFFEF3 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		FC57DEE42625045A00CFFEF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC57DEE72625045A00CFFEF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC57DEE92625045A00CFFEF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,14 +54,46 @@
 		FC57DEDA2625045600CFFEF3 /* WeatherGoat */ = {
 			isa = PBXGroup;
 			children = (
+				FC57DEF22625247800CFFEF3 /* Services */,
+				FC57DEF12625243B00CFFEF3 /* Controllers */,
+				FC57DEF02625243200CFFEF3 /* Views */,
+				FC57DEEF2625240D00CFFEF3 /* Models */,
 				FC57DEDB2625045600CFFEF3 /* AppDelegate.swift */,
 				FC57DEDD2625045600CFFEF3 /* SceneDelegate.swift */,
-				FC57DEDF2625045600CFFEF3 /* ViewController.swift */,
 				FC57DEE42625045A00CFFEF3 /* Assets.xcassets */,
 				FC57DEE62625045A00CFFEF3 /* LaunchScreen.storyboard */,
 				FC57DEE92625045A00CFFEF3 /* Info.plist */,
 			);
 			path = WeatherGoat;
+			sourceTree = "<group>";
+		};
+		FC57DEEF2625240D00CFFEF3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC57DEF02625243200CFFEF3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FC57DEF12625243B00CFFEF3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC57DEDF2625045600CFFEF3 /* WeatherViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FC57DEF22625247800CFFEF3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC57DEE02625045600CFFEF3 /* ViewController.swift in Sources */,
+				FC57DEE02625045600CFFEF3 /* WeatherViewController.swift in Sources */,
 				FC57DEDC2625045600CFFEF3 /* AppDelegate.swift in Sources */,
 				FC57DEDE2625045600CFFEF3 /* SceneDelegate.swift in Sources */,
 			);
