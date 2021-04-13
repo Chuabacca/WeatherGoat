@@ -49,7 +49,7 @@ class WeatherService {
     // hard code the url string for now
     let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&units=imperial&exclude=current,minutely,hourly,alerts&appid=802f1e7a53d3552f5406c1dcbec8eb22"
     
-    func getWeather() {
+    func getWeather(_ completion: @escaping (_ data: Data) -> Void) {
         let url = URL(string: urlString)!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -64,19 +64,19 @@ class WeatherService {
                 print("Received no data from API.")
                 return
             }
-            self.decodeJSON(data)
+            self.decodeJSON(data, completion)
         }
         task.resume()
     }
     
     // Separate diferent responsibilities into distinct functions
-    func decodeJSON(_ data: Data) -> Void {
+    func decodeJSON(_ data: Data, _ completion: (_ data: Data) -> Void) -> Void {
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .secondsSince1970
             let weatherData = try decoder.decode(WeatherData.self, from: data)
             self.mapWeatherData(weatherData)
-            print(self.dailyForecast.description)
+            completion(data)
         } catch {
             print("Handle JSON decoding error: \(error)")
         }
