@@ -27,12 +27,13 @@ class WeatherViewModel {
         let formatter = DateFormatter()
         formatter.dateFormat = "E, MMM d"
 
-        // Prevents multiple calls to getWeather after location is set.
+        // Prevents multiple calls to getWeather when LocationManager sends multiple location updates.
         guard service.lat == nil else { return }
 
         service.lat = lat
         service.lon = lon
 
+        // The model is responsible for calling the service so that the controller only needs to know about the model.
         service.getWeather() { [weak self] data in
             guard let self = self else { return }
             for day in self.service.dailyForecast {

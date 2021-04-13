@@ -66,6 +66,8 @@ class WeatherCell: UITableViewCell {
     func setContent(model: WeatherViewModel.DayForecast) {
         self.model = model
 
+        // Functionality to display the images by loading them from the URLs stored in the model is missing.
+        // Ideally this would be separated into an ImageService that would handle loading and caching the images.
         dateLabel.text = model.date
         maxTemperatureLabel.text = "High: \(String(model.maxTemperature))°"
         minTemperatureLabel.text = "Low: \(String(model.minTemperature))°"

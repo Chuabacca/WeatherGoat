@@ -13,6 +13,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
     var model = WeatherViewModel()
     var locationManager = CLLocationManager()
 
+    // The TableView could have been moved to a separate view to cleanly separate the user use case logic from view logic
     let weatherTableView = UITableView()
     let weatherCellIdentifier = "weatherCell"
 
@@ -40,6 +41,7 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
 
     // MARK: - Use Cases
     @objc func didTapGetWeather() {
+        // My preference would have been to separate this logic into a LocationManagerService to encapsulate responsibility.
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
