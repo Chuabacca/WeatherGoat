@@ -13,7 +13,7 @@ class WeatherService {
     var dailyForecast: [DayForecast] = []
 
     struct DayForecast {
-        let date: Int
+        let date: Date
         let minTemperature: Float
         let maxTemperature: Float
         let weather: [Weather]
@@ -27,7 +27,7 @@ class WeatherService {
     struct WeatherData: Codable {
         var daily: [DayData]
         struct DayData: Codable {
-            var dt: Int
+            var dt: Date
             var temp: Temp
             struct Temp: Codable {
                 var min: Float
