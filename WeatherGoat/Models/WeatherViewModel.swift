@@ -9,6 +9,7 @@
 import UIKit
 
 struct WeatherViewModel {
+    let service = WeatherService.shared
     var dailyForecast: [DayForecast] = []
 
     struct DayForecast {

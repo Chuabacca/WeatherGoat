@@ -9,6 +9,9 @@
 import UIKit
 
 class WeatherService {
+    // Create a singleton so we don't instantiate multiple instances of the service
+    static let shared = WeatherService()
+
     // Structure of data we need for the app
     var dailyForecast: [DayForecast] = []
 
