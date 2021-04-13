@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
 
-class WeatherViewController: UIViewController, UITableViewDataSource, WeatherViewModelDelegate {
+class WeatherViewController: UIViewController, UITableViewDataSource, WeatherViewModelDelegate, CLLocationManagerDelegate {
     var model = WeatherViewModel()
+    var locationManager = CLLocationManager()
 
     let weatherTableView = UITableView()
     let weatherCellIdentifier = "weatherCell"
@@ -18,6 +20,8 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
         super.viewDidLoad()
 
         model.delegate = self
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Get Weather", style: .plain, target: self, action: #selector(didTapGetWeather))
 
         weatherTableView.translatesAutoresizingMaskIntoConstraints = false
         weatherTableView.dataSource = self
@@ -33,7 +37,22 @@ class WeatherViewController: UIViewController, UITableViewDataSource, WeatherVie
         ])
 
         view.backgroundColor = .blue
-        model.buildModel()
+    }
+
+    // MARK: - Use Cases
+    @objc func didTapGetWeather() {
+        locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locationValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        model.buildModel(lat: locationValue.latitude, lon: locationValue.longitude)
+        print("locations = \(locationValue.latitude) \(locationValue.longitude)")
     }
 
     // MARK: - TableView data source methods

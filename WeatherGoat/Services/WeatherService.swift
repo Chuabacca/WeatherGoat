@@ -46,27 +46,33 @@ class WeatherService {
     
     init() {}
     
-    // hard code the url string for now
-    let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&units=imperial&exclude=current,minutely,hourly,alerts&appid=802f1e7a53d3552f5406c1dcbec8eb22"
-    
+    var lat: Double?
+    var lon: Double?
+
     func getWeather(_ completion: @escaping (_ data: Data) -> Void) {
-        let url = URL(string: urlString)!
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Handle error: \(error.localizedDescription)")
-                return
+        if
+            let lat = lat,
+            let lon = lon,
+            let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&units=imperial&exclude=current,minutely,hourly,alerts&appid=802f1e7a53d3552f5406c1dcbec8eb22")
+
+        {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    print("Handle error: \(error.localizedDescription)")
+                    return
+                }
+                guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                    print("Handle server error: \(response.debugDescription)")
+                    return
+                }
+                guard let data = data else {
+                    print("Received no data from API.")
+                    return
+                }
+                self.decodeJSON(data, completion)
             }
-            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                print("Handle server error: \(response.debugDescription)")
-                return
-            }
-            guard let data = data else {
-                print("Received no data from API.")
-                return
-            }
-            self.decodeJSON(data, completion)
+            task.resume()
         }
-        task.resume()
     }
     
     // Separate diferent responsibilities into distinct functions

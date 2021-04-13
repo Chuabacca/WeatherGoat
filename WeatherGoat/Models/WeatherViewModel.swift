@@ -23,9 +23,15 @@ class WeatherViewModel {
         let imageURL: String
     }
 
-    func buildModel() {
+    func buildModel(lat: Double, lon: Double) {
         let formatter = DateFormatter()
         formatter.dateFormat = "E, MMM d"
+
+        // Prevents multiple calls to getWeather after location is set.
+        guard service.lat == nil else { return }
+
+        service.lat = lat
+        service.lon = lon
 
         service.getWeather() { [weak self] data in
             guard let self = self else { return }
